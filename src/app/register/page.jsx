@@ -1,22 +1,8 @@
-"use client";
-
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-
 const page = () => {
   return (
-    <Box
-      component="form"
-      sx={{
-        "& > :not(style)": { m: 1, width: "25ch" },
-      }}
-      noValidate
-      autoComplete="off"
-    >
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-      <TextField id="filled-basic" label="Filled" variant="filled" />
-      <TextField id="standard-basic" label="Standard" variant="standard" />
-    </Box>
+    <div className="text-red-500 text-3xl text-center">
+      <h1 className="text-red-500">Register form</h1>
+    </div>
   );
 };
 
