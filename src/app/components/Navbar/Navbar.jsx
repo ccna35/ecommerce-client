@@ -5,7 +5,8 @@ import { User, Search, ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import LoginModal from "../Modals/LoginModal";
 
 const dropdownItems = [
   {
@@ -43,8 +44,14 @@ const dropdownItems = [
 ];
 
 const Navbar = () => {
+  const [openLoginModal, setOpenLoginModal] = useState();
+
   return (
     <nav className="bg-white py-4 border-b">
+      <LoginModal
+        openLoginModal={openLoginModal}
+        setOpenLoginModal={setOpenLoginModal}
+      />
       <div className="container mx-auto flex justify-between items-center">
         <div className="logo">
           <Link href="/">
@@ -109,8 +116,15 @@ const Navbar = () => {
           </Menu>
         </div>
         <div className="menu flex gap-4">
-          <User size={24} />
-          <ShoppingBag size={24} />
+          <div
+            className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor cursor-pointer"
+            onClick={() => setOpenLoginModal("form-elements")}
+          >
+            <User size={24} />
+          </div>
+          <div className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor cursor-pointer">
+            <ShoppingBag size={24} />
+          </div>
         </div>
       </div>
     </nav>
