@@ -1,12 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { User, Clipboard, Search } from "lucide-react";
+import { User, Search, ShoppingBag } from "lucide-react";
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Fragment } from "react";
-import { ShoppingBag } from "lucide-react";
 
 const dropdownItems = [
   {
@@ -45,14 +44,21 @@ const dropdownItems = [
 
 const Navbar = () => {
   return (
-    <nav className="bg-white py-4">
-      <div className="container mx-auto flex justify-between">
+    <nav className="bg-white py-4 border-b">
+      <div className="container mx-auto flex justify-between items-center">
         <div className="logo">
           <Link href="/">
-            <Image src="/logo.svg" width={100} height={100} alt="Logo" />
+            <Image
+              src="/logo.svg"
+              width={100}
+              height={100}
+              alt="Logo"
+              priority
+              style={{ width: "100%", height: "100%" }}
+            />
           </Link>
         </div>
-        <div className="searchForm inline-flex items-center border border-secColor rounded-full flex-grow max-w-lg h-10">
+        <div className="searchForm hidden lg:inline-flex items-center border border-secColor rounded-full flex-grow max-w-lg h-10">
           <Search size={50} className="text-secColor px-4" />
           <input
             type="search"
