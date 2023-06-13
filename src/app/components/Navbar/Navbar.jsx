@@ -7,6 +7,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Fragment, useState } from "react";
 import LoginModal from "../Modals/LoginModal";
+import ShoppingCart from "../ShoppingCart";
 
 const dropdownItems = [
   {
@@ -46,8 +47,10 @@ const dropdownItems = [
 const Navbar = () => {
   const [openLoginModal, setOpenLoginModal] = useState();
 
+  const [openShoppingCart, setOpenShoppingCart] = useState(false);
+
   return (
-    <nav className="bg-white py-4 border-b">
+    <nav className="bg-white py-4 border-b relative z-10">
       <LoginModal
         openLoginModal={openLoginModal}
         setOpenLoginModal={setOpenLoginModal}
@@ -123,7 +126,11 @@ const Navbar = () => {
             <User size={24} />
           </div>
           <div className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor cursor-pointer">
-            <ShoppingBag size={24} />
+            <ShoppingBag size={24} onClick={() => setOpenShoppingCart(true)} />
+            <ShoppingCart
+              openShoppingCart={openShoppingCart}
+              setOpenShoppingCart={setOpenShoppingCart}
+            />
           </div>
         </div>
       </div>
