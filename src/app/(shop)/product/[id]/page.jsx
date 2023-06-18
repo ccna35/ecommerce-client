@@ -1,5 +1,8 @@
-import ProductGallery from "@/app/components/ProductPage/ProductGallery";
-import DefaultTabs from "@/app/components/ProductPage/Tabs";
+// import ProductGallery from "@/app/components/ProductPage/ProductGallery";
+// import DefaultTabs from "@/app/components/ProductPage/Tabs";
+
+import ProductGallery from "../../components/ProductPage/ProductGallery";
+import DefaultTabs from "../../components/ProductPage/Tabs";
 
 const ProductPage = () => {
   const productImages = [
