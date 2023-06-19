@@ -1,3 +1,5 @@
+import Card from "../components/Card";
+
 const AdminDashboard = () => {
   const leftSideTabs = [
     {
@@ -51,8 +53,11 @@ const AdminDashboard = () => {
   ];
 
   return (
-    <div className="border rounded-md p-4">
-      <h1 className="text-3xl text-mainColor">Admin Dashboard</h1>
+    <div className="grid grid-cols-2 gap-4">
+      <Card cardTitle="Orders" stats="32,350" />
+      <Card cardTitle="Products" stats="150" />
+      <Card cardTitle="Merchants" stats="45" />
+      <Card cardTitle="Reviews" stats="50" />
     </div>
   );
 };
