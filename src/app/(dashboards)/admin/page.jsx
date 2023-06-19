@@ -51,7 +51,7 @@ const AdminDashboard = () => {
   ];
 
   return (
-    <div className="container mx-auto grid place-items-center py-16">
+    <div className="border rounded-md p-4">
       <h1 className="text-3xl text-mainColor">Admin Dashboard</h1>
     </div>
   );
