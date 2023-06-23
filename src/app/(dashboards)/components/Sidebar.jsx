@@ -1,41 +1,52 @@
-"use client";
-
-import { Sidebar } from "flowbite-react";
-import {
-  HiArrowSmRight,
-  HiChartPie,
-  HiInbox,
-  HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiViewBoards,
-} from "react-icons/hi";
+import Link from "next/link";
 
 export default function DashboardSidebar() {
+  const sidebarItems = [
+    {
+      id: 1,
+      text: "Overview",
+      href: "/admin",
+    },
+    {
+      id: 2,
+      text: "Orders",
+      href: "/admin/orders",
+    },
+    {
+      id: 3,
+      text: "Products",
+      href: "/admin/products",
+    },
+    {
+      id: 4,
+      text: "Categories",
+      href: "/admin/categories",
+    },
+    {
+      id: 5,
+      text: "Reviews",
+      href: "/admin/reviews",
+    },
+    {
+      id: 6,
+      text: "Sellers",
+      href: "/admin/sellers",
+    },
+  ];
+
   return (
-    <Sidebar aria-label="Sidebar with multi-level dropdown example">
-      <Sidebar.Items>
-        <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiChartPie}>
-            <p>Dashboard</p>
-          </Sidebar.Item>
-          <Sidebar.Collapse icon={HiShoppingBag} label="Products">
-            <Sidebar.Item href="#">Product List</Sidebar.Item>
-            <Sidebar.Item href="#">Create Product</Sidebar.Item>
-            <Sidebar.Item href="#">Reviews</Sidebar.Item>
-          </Sidebar.Collapse>
-          <Sidebar.Collapse icon={HiShoppingBag} label="Categories">
-            <Sidebar.Item href="#">Category List</Sidebar.Item>
-            <Sidebar.Item href="#">Create Category</Sidebar.Item>
-          </Sidebar.Collapse>
-          <Sidebar.Item href="#" icon={HiInbox}>
-            <p>Orders</p>
-          </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiUser}>
-            <p>Sellers</p>
-          </Sidebar.Item>
-        </Sidebar.ItemGroup>
-      </Sidebar.Items>
-    </Sidebar>
+    <div className="bg-white rounded-md shadow-sm flex flex-col gap-4 p-2">
+      {sidebarItems.map((item) => {
+        return (
+          <Link
+            href={item.href}
+            className="px-4 py-2 rounded-sm hover:bg-slate-100 transition-colors duration-300 text-mainColor"
+            key={item.id}
+          >
+            {item.text}
+          </Link>
+        );
+      })}
+    </div>
   );
 }

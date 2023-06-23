@@ -8,6 +8,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Fragment, useState } from "react";
 import LoginModal from "../Modals/LoginModal";
 import ShoppingCart from "../ShoppingCart";
+import { MdSpaceDashboard } from "react-icons/md";
 
 const dropdownItems = [
   {
@@ -131,6 +132,9 @@ const Navbar = () => {
               openShoppingCart={openShoppingCart}
               setOpenShoppingCart={setOpenShoppingCart}
             />
+            <Link href="/admin">
+              <MdSpaceDashboard />
+            </Link>
           </div>
         </div>
       </div>

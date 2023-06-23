@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import Link from "next/link";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -29,22 +30,26 @@ export default function Navbar() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <Image
-                    className="block h-9 w-auto lg:hidden"
-                    src="/logo.svg"
-                    width={75}
-                    height={75}
-                    alt="Logo"
-                    priority
-                  />
-                  <Image
-                    className="hidden h-9 w-auto lg:block"
-                    src="/logo.svg"
-                    width={75}
-                    height={75}
-                    alt="Logo"
-                    priority
-                  />
+                  <Link href="/">
+                    <Image
+                      className="block h-9 w-auto lg:hidden"
+                      src="/logo.svg"
+                      width={75}
+                      height={75}
+                      alt="Logo"
+                      priority
+                    />
+                  </Link>
+                  <Link href="/">
+                    <Image
+                      className="hidden h-9 w-auto lg:block"
+                      src="/logo.svg"
+                      width={75}
+                      height={75}
+                      alt="Logo"
+                      priority
+                    />
+                  </Link>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">

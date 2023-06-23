@@ -1,65 +1,38 @@
 import Card from "../components/Card";
 
-const AdminDashboard = () => {
-  const leftSideTabs = [
+const Overview = () => {
+  const cards = [
     {
       id: 1,
-      title: "Overview",
+      cardTitle: "Orders",
+      stats: 3434,
     },
     {
       id: 2,
-      title: "Account",
+      cardTitle: "Products",
+      stats: 2231,
     },
     {
       id: 3,
-      title: "Account Security",
+      cardTitle: "Sellers",
+      stats: 223,
     },
     {
       id: 4,
-      title: "Address",
-    },
-    {
-      id: 5,
-      title: "Products",
-    },
-    {
-      id: 6,
-      title: "Categories",
-    },
-    {
-      id: 7,
-      title: "Brands",
-    },
-    {
-      id: 8,
-      title: "Users",
-    },
-    {
-      id: 9,
-      title: "Merchants",
-    },
-    {
-      id: 10,
-      title: "Orders",
-    },
-    {
-      id: 11,
-      title: "Reviews",
-    },
-    {
-      id: 12,
-      title: "Wishlist",
+      cardTitle: "Reviews",
+      stats: 979,
     },
   ];
 
   return (
     <div className="grid grid-cols-2 gap-4">
-      <Card cardTitle="Orders" stats="32,350" />
-      <Card cardTitle="Products" stats="150" />
-      <Card cardTitle="Merchants" stats="45" />
-      <Card cardTitle="Reviews" stats="50" />
+      {cards.map((card) => {
+        return (
+          <Card cardTitle={card.cardTitle} stats={card.stats} key={card.id} />
+        );
+      })}
     </div>
   );
 };
 
-export default AdminDashboard;
+export default Overview;
