@@ -132,7 +132,7 @@ const Navbar = () => {
               openShoppingCart={openShoppingCart}
               setOpenShoppingCart={setOpenShoppingCart}
             />
-            <Link href="/admin">
+            <Link href="/dashboard">
               <MdSpaceDashboard />
             </Link>
           </div>

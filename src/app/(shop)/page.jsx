@@ -6,6 +6,7 @@ import { BiCategory } from "react-icons/bi";
 import CategoryCard from "./components/Category/CategoryCard";
 import CategorySmallCard from "./components/Category/CategorySmallCard";
 import Feature from "./components/Features/Feature";
+import Link from "next/link";
 
 export default function Home() {
   const products = [
@@ -46,6 +47,24 @@ export default function Home() {
     },
   ];
 
+  const categories = [
+    {
+      id: 1,
+      name: "Bags",
+      href: "bags",
+    },
+    {
+      id: 2,
+      name: "Phones",
+      href: "phones",
+    },
+    {
+      id: 3,
+      name: "Laptops",
+      href: "laptops",
+    },
+  ];
+
   return (
     <main>
       <section className="bg-white">
@@ -82,9 +101,13 @@ export default function Home() {
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <CategoryCard />
-            <CategoryCard />
-            <CategoryCard />
+            {categories.map((category) => {
+              return (
+                <Link href={"/category/" + category.href} key={category.id}>
+                  <CategoryCard category={category} />
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
