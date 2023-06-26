@@ -120,6 +120,11 @@ const Navbar = () => {
           </Menu>
         </div>
         <div className="menu flex gap-4">
+          <div className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor cursor-pointer">
+            <Link href="/dashboard">
+              <MdSpaceDashboard size={24} />
+            </Link>
+          </div>
           <div
             className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor cursor-pointer"
             onClick={() => setOpenLoginModal("form-elements")}
@@ -132,9 +137,6 @@ const Navbar = () => {
               openShoppingCart={openShoppingCart}
               setOpenShoppingCart={setOpenShoppingCart}
             />
-            <Link href="/dashboard">
-              <MdSpaceDashboard />
-            </Link>
           </div>
         </div>
       </div>
