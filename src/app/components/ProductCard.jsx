@@ -1,13 +1,12 @@
 "use client";
 
-import { Rating } from "flowbite-react";
 import Image from "next/image";
 import { useState } from "react";
-import { AiFillPlusSquare } from "react-icons/ai";
+import { AiFillPlusSquare, AiFillStar } from "react-icons/ai";
 import ProductQuickView from "./ProductPage/ProductQuickView";
 import Link from "next/link";
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
   const [openQuickView, setOpenQuickView] = useState(false);
 
   return (
@@ -18,7 +17,7 @@ const ProductCard = () => {
       <div className="relative h-60 group">
         <Link href="/product/sdsd">
           <Image
-            src={"/carousel/flash-3.webp"}
+            src={product.image}
             fill={true}
             alt="carousel item"
             className="object-contain"
@@ -36,18 +35,17 @@ const ProductCard = () => {
         />
       </div>
       <div className="p-2 flex flex-col gap-4">
-        <p>NikeCourt Zoom Vapor Cage</p>
-        <Rating>
-          <Rating.Star />
-          <Rating.Star />
-          <Rating.Star />
-          <Rating.Star />
-          <Rating.Star />
-        </Rating>
+        <p>{product.title}</p>
+
         <div className="flex justify-between items-center">
           <div className="flex gap-4">
-            <p className="text-chestnutRose">$187.5</p>
-            <p className="text-gray-600 line-through">$200</p>
+            <p className="text-chestnutRose">${product.price}</p>
+            <div className="flex gap-1 items-center">
+              <p>{product.rating.rate}</p>
+              <span className="text-yellow-500">
+                <AiFillStar />
+              </span>
+            </div>
           </div>
           <AiFillPlusSquare className="text-chestnutRose" size={30} />
         </div>

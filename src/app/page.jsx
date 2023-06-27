@@ -8,62 +8,85 @@ import CategorySmallCard from "./components/Category/CategorySmallCard";
 import Feature from "./components/Features/Feature";
 import Link from "next/link";
 
-export default function Home() {
-  const products = [
-    {
-      id: 1,
-      title: "50% Off For Your First Shopping",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      buttonText: "Shop Now",
-      imageSrc: "/carousel/nike-black.png",
-    },
-    {
-      id: 2,
-      title: "50% Off For Your First Shopping",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      buttonText: "Shop Now",
-      imageSrc: "/carousel/flash-4.webp",
-    },
-    {
-      id: 3,
-      title: "50% Off For Your First Shopping",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      buttonText: "Shop Now",
-      imageSrc: "/carousel/32.webp",
-    },
-    {
-      id: 4,
-      title: "50% Off For Your First Shopping",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      buttonText: "Shop Now",
-      imageSrc: "/carousel/9.webp",
-    },
-    {
-      id: 5,
-      title: "50% Off For Your First Shopping",
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-      buttonText: "Shop Now",
-      imageSrc: "/carousel/flash-3.webp",
-    },
-  ];
+async function getAllProducts() {
+  const res = await fetch("https://fakestoreapi.com/products");
 
-  const categories = [
-    {
-      id: 1,
-      name: "Bags",
-      href: "bags",
-    },
-    {
-      id: 2,
-      name: "Phones",
-      href: "phones",
-    },
-    {
-      id: 3,
-      name: "Laptops",
-      href: "laptops",
-    },
-  ];
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+async function getAllCategories() {
+  const res = await fetch("https://fakestoreapi.com/products/categories");
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export default async function Home() {
+  const products = await getAllProducts();
+  const categories = await getAllCategories();
+
+  // const products = [
+  //   {
+  //     id: 1,
+  //     title: "50% Off For Your First Shopping",
+  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  //     buttonText: "Shop Now",
+  //     imageSrc: "/carousel/nike-black.png",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "50% Off For Your First Shopping",
+  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  //     buttonText: "Shop Now",
+  //     imageSrc: "/carousel/flash-4.webp",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "50% Off For Your First Shopping",
+  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  //     buttonText: "Shop Now",
+  //     imageSrc: "/carousel/32.webp",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "50% Off For Your First Shopping",
+  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  //     buttonText: "Shop Now",
+  //     imageSrc: "/carousel/9.webp",
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "50% Off For Your First Shopping",
+  //     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+  //     buttonText: "Shop Now",
+  //     imageSrc: "/carousel/flash-3.webp",
+  //   },
+  // ];
+
+  // const categories = [
+  //   {
+  //     id: 1,
+  //     name: "Bags",
+  //     href: "bags",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Phones",
+  //     href: "phones",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Laptops",
+  //     href: "laptops",
+  //   },
+  // ];
 
   return (
     <main>
@@ -81,14 +104,9 @@ export default function Home() {
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            {products?.map((product) => {
+              return <ProductCard product={product} key={product.id} />;
+            })}
           </div>
         </div>
       </section>
@@ -103,7 +121,7 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {categories.map((category) => {
               return (
-                <Link href={"/category/" + category.href} key={category.id}>
+                <Link href={"/category/" + category} key={category}>
                   <CategoryCard category={category} />
                 </Link>
               );

@@ -4,9 +4,9 @@ const Announcement = () => {
   return (
     <div className="bg-mainColor text-white py-2">
       <div className="container mx-auto flex items-center justify-between">
-        <div className="flex gap-4">
-          <p className="px-4 rounded-full bg-chestnutRose">Hot</p>
-          <p>Free Express Shipping</p>
+        <div className="flex gap-4 items-center">
+          <p className="px-4 py-1 rounded-full bg-chestnutRose text-xs">Hot</p>
+          <p className="text-xs">Free Express Shipping</p>
         </div>
         <div className="flex gap-4 items-center">
           <select

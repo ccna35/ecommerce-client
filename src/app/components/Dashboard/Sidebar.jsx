@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 export default function DashboardSidebar() {
   const sidebarItems = [
@@ -34,14 +37,19 @@ export default function DashboardSidebar() {
     },
   ];
 
+  const [activeTab, setActiveTab] = useState("/dashboard");
+
   return (
     <div className="bg-white rounded-md shadow-sm flex flex-col gap-4 p-2">
       {sidebarItems.map((item) => {
         return (
           <Link
             href={item.href}
-            className="px-4 py-2 rounded-sm hover:bg-slate-100 transition-colors duration-300 text-mainColor"
+            className={`${
+              activeTab === item.href && "bg-yellow-500 text-white"
+            } px-4 py-2 rounded-sm hover:bg-slate-100 transition-colors duration-300 text-mainColor`}
             key={item.id}
+            onClick={() => setActiveTab(item.href)}
           >
             {item.text}
           </Link>
