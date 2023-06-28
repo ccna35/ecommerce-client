@@ -1,20 +1,21 @@
-import ProductList from "@/app/components/Dashboard/ProductList";
+import BrandList from "@/app/components/Dashboard/BrandList";
+import CategoryList from "@/app/components/Dashboard/CategoryList";
 import { Suspense } from "react";
 
-const ProductsPage = () => {
+const Brands = () => {
   return (
     <div className="bg-white rounded-md p-4 shadow-sm">
       <div className="mb-4 flex justify-between">
-        <h2 className="text-2xl font-medium text-mainColor">Products</h2>
+        <h2 className="text-2xl font-medium text-mainColor">Brands</h2>
         <button className="px-2 py-1 rounded-sm bg-green-700 text-white">
-          New Product
+          New Brand
         </button>
       </div>
       <Suspense fallback={<div>Loading...</div>}>
-        <ProductList />
+        <BrandList />
       </Suspense>
     </div>
   );
 };
 
-export default ProductsPage;
+export default Brands;

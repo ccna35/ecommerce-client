@@ -1,19 +1,18 @@
+import CategoryList from "@/app/components/Dashboard/CategoryList";
+import { Suspense } from "react";
+
 const Categories = () => {
   return (
-    <div className="">
-      <h1>
-        Categories Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Doloremque, accusantium magni. Corporis adipisci totam, architecto
-        dignissimos mollitia incidunt dolor tempora quas vitae libero debitis,
-        ratione tenetur non iste, eligendi sit? Dignissimos excepturi odit,
-        debitis non dolorem sed accusantium ea dolorum illum. Nostrum dolorem
-        explicabo a dolore! Nemo officiis, quisquam ullam repellat labore
-        placeat. Tempora quas laboriosam dolor numquam recusandae laudantium
-        minima earum nulla nemo expedita molestias possimus veritatis delectus
-        adipisci facilis saepe, illum ea. Est quis dolor fuga vero, perferendis
-        voluptate consectetur, quos quam at consequatur repudiandae earum, error
-        ea cum et. Rerum eveniet reprehenderit dicta quae, laborum velit modi.
-      </h1>
+    <div className="bg-white rounded-md p-4 shadow-sm">
+      <div className="mb-4 flex justify-between">
+        <h2 className="text-2xl font-medium text-mainColor">Categories</h2>
+        <button className="px-2 py-1 rounded-sm bg-green-700 text-white">
+          New Category
+        </button>
+      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <CategoryList />
+      </Suspense>
     </div>
   );
 };
