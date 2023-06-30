@@ -125,12 +125,18 @@ const Navbar = () => {
               <MdSpaceDashboard size={24} />
             </Link>
           </div>
-          <div
+          {/* <div
             className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor cursor-pointer"
             onClick={() => setOpenLoginModal("form-elements")}
           >
             <User size={24} />
-          </div>
+          </div> */}
+          <Link
+            href="/login"
+            className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor"
+          >
+            <User size={24} />
+          </Link>
           <div className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor cursor-pointer">
             <ShoppingBag size={24} onClick={() => setOpenShoppingCart(true)} />
             <ShoppingCart

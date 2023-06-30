@@ -1,4 +1,5 @@
 import ProductList from "@/app/components/Dashboard/ProductList";
+import Link from "next/link";
 import { Suspense } from "react";
 
 const ProductsPage = () => {
@@ -6,9 +7,11 @@ const ProductsPage = () => {
     <div className="bg-white rounded-md p-4 shadow-sm">
       <div className="mb-4 flex justify-between">
         <h2 className="text-2xl font-medium text-mainColor">Products</h2>
-        <button className="px-2 py-1 rounded-sm bg-green-700 text-white">
-          New Product
-        </button>
+        <Link href="/dashboard/products/new">
+          <button className="px-2 py-1 rounded-sm bg-green-700 text-white">
+            New
+          </button>
+        </Link>
       </div>
       <Suspense fallback={<div>Loading...</div>}>
         <ProductList />

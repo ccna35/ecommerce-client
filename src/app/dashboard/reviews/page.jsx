@@ -1,19 +1,22 @@
+import ReviewList from "@/app/components/Dashboard/ReviewList";
+import { Suspense } from "react";
+
 const ReviewsPage = () => {
   return (
-    <div className="">
-      <h1>
-        ReviewsPage Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Doloremque, accusantium magni. Corporis adipisci totam, architecto
-        dignissimos mollitia incidunt dolor tempora quas vitae libero debitis,
-        ratione tenetur non iste, eligendi sit? Dignissimos excepturi odit,
-        debitis non dolorem sed accusantium ea dolorum illum. Nostrum dolorem
-        explicabo a dolore! Nemo officiis, quisquam ullam repellat labore
-        placeat. Tempora quas laboriosam dolor numquam recusandae laudantium
-        minima earum nulla nemo expedita molestias possimus veritatis delectus
-        adipisci facilis saepe, illum ea. Est quis dolor fuga vero, perferendis
-        voluptate consectetur, quos quam at consequatur repudiandae earum, error
-        ea cum et. Rerum eveniet reprehenderit dicta quae, laborum velit modi.
-      </h1>
+    <div className="bg-white rounded-md p-4 shadow-sm">
+      <div className="mb-4 flex justify-between">
+        <h2 className="text-2xl font-medium text-mainColor">Reviews</h2>
+        <input
+          type="search"
+          name="user"
+          id="user"
+          className="block rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          placeholder="Search sellers..."
+        />
+      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ReviewList />
+      </Suspense>
     </div>
   );
 };
