@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 import { HiArrowUpRight } from "react-icons/hi2";
 
@@ -40,9 +41,11 @@ export default async function ProductList() {
             </div>
           </div>
           <div className="flex gap-4 flex-wrap">
-            <button className="px-2 py-1 rounded-sm bg-green-700 text-white">
-              <AiFillEdit />
-            </button>
+            <Link href={`/dashboard/products/${product.id}/edit`}>
+              <button className="px-2 py-1 rounded-sm bg-green-700 text-white">
+                <AiFillEdit />
+              </button>
+            </Link>
             <button className="px-2 py-1 rounded-sm bg-blue-700 text-white">
               <HiArrowUpRight />
             </button>

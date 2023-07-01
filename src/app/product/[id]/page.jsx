@@ -2,7 +2,6 @@
 // import DefaultTabs from "@/app/components/ProductPage/Tabs";
 
 import Image from "next/image";
-import ProductGallery from "../../components/ProductPage/ProductGallery";
 import DefaultTabs from "../../components/ProductPage/Tabs";
 
 const ProductPage = async ({ params }) => {
