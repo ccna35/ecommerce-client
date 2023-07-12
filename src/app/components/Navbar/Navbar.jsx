@@ -9,6 +9,7 @@ import { Fragment, useState } from "react";
 import LoginModal from "../Modals/LoginModal";
 import ShoppingCart from "../ShoppingCart";
 import { MdSpaceDashboard } from "react-icons/md";
+import UserMenu from "./UserMenu";
 
 const dropdownItems = [
   {
@@ -120,23 +121,25 @@ const Navbar = () => {
           </Menu>
         </div>
         <div className="menu flex gap-4">
-          <div className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor cursor-pointer">
-            <Link href="/dashboard">
-              <MdSpaceDashboard size={24} />
-            </Link>
-          </div>
+          <Link
+            href="/dashboard"
+            className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor cursor-pointer"
+          >
+            <MdSpaceDashboard size={24} />
+          </Link>
           {/* <div
             className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor cursor-pointer"
             onClick={() => setOpenLoginModal("form-elements")}
           >
             <User size={24} />
           </div> */}
-          <Link
+          {/* <Link
             href="/login"
             className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor"
           >
             <User size={24} />
-          </Link>
+          </Link> */}
+          <UserMenu />
           <div className="w-12 h-12 grid place-items-center bg-gray-100 rounded-full text-mainColor cursor-pointer">
             <ShoppingBag size={24} onClick={() => setOpenShoppingCart(true)} />
             <ShoppingCart

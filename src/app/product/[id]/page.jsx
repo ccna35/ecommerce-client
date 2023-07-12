@@ -1,8 +1,6 @@
-// import ProductGallery from "@/app/components/ProductPage/ProductGallery";
-// import DefaultTabs from "@/app/components/ProductPage/Tabs";
-
 import Image from "next/image";
-import DefaultTabs from "../../components/ProductPage/Tabs";
+import NewReview from "@/app/components/ProductPage/NewReview";
+import Review from "@/app/components/ProductPage/Review";
 
 const ProductPage = async ({ params }) => {
   async function getProductDetails() {
@@ -65,8 +63,13 @@ const ProductPage = async ({ params }) => {
           </p>
         </div>
       </div>
-      <div className="my-8 w-full">
-        <DefaultTabs />
+      <div className="my-8 w-full flex flex-col gap-4">
+        <NewReview />
+        <div className="flex flex-col gap-4">
+          <Review />
+          <Review />
+          <Review />
+        </div>
       </div>
     </div>
   );
