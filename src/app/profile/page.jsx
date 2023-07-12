@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import BackButton from "../components/common/BackButton";
 
 const checkUser = async () => {
@@ -18,7 +19,7 @@ const checkUser = async () => {
 
 const page = async () => {
   const userExists = await checkUser();
-
+  const router = useRouter();
   if (!userExists) {
     router.push("/login");
   }
